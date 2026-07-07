@@ -261,6 +261,79 @@
     .cover h1{ font-size:42px; }
     .persona-card{ grid-template-columns:1fr; }
   }
+
+  /* ===== Mobile-only refinements (<=768px). Desktop and tablet rules above are untouched. ===== */
+  @media (max-width: 768px){
+    section{ padding:64px 20px; }
+    .tag-index{ display:none; }
+
+    /* headings & scale */
+    h2.title{ font-size:26px; line-height:1.25; }
+    .sub{ font-size:14.5px; max-width:100%; margin-bottom:32px; }
+    .eyebrow{ font-size:10.5px; }
+
+    /* cover */
+    .cover{ min-height:auto; padding-top:120px; padding-bottom:80px; }
+    .cover h1{ font-size:34px; letter-spacing:-1px; }
+    .cover .role{ font-size:15px; margin-bottom:22px; }
+    .cover .degree{ font-size:13px; margin-bottom:28px; }
+    .cover .line{ font-size:15.5px; padding-left:14px; }
+    .cover-meta{ position:relative; z-index:2; margin-top:22px; }
+    .cover-meta span{ font-size:11px; padding:6px 12px; }
+    /* keep decorative wave from ever overlapping the chips/content */
+    .wave{
+      width:130px; height:130px; opacity:.18;
+      top:24px; right:0; bottom:auto; left:auto; z-index:0;
+    }
+
+    /* cards, grids, pills */
+    .card{ padding:18px; }
+    .grid4{ grid-template-columns:1fr 1fr; gap:14px; }
+    .skills-grid{ grid-template-columns:1fr; gap:0; margin-bottom:28px; }
+    .sachet-grid{ grid-template-columns:1fr; gap:16px; }
+    .sachet{ height:170px; }
+    .sachet .word{ font-size:19px; }
+    .email-flow{ flex-direction:column; gap:14px; }
+    .email-flow .step{ min-width:0; }
+    .persona-card{ gap:20px; }
+    .avatar{ width:80px; height:80px; margin:0 auto; }
+    .avatar svg{ width:34px; height:34px; }
+
+    /* tables: preserve column layout, scroll instead of squeezing/overlapping */
+    .table-scroll{ overflow-x:auto; -webkit-overflow-scrolling:touch; margin:0 -20px; padding:0 20px; }
+    .table-scroll table{ min-width:520px; }
+    table{ font-size:13px; }
+    th, td{ padding:11px 12px; }
+
+    /* diagrams: scale as whole blocks so internal absolute positions never overlap */
+    .pos-triangle{ transform:scale(0.72); transform-origin:top center; margin:24px auto -70px; }
+    .map2x2{ transform:scale(0.78); transform-origin:top center; margin:24px auto -60px; }
+    .pos-triangle .corner, .map2x2 .lbl, .map2x2 .axis-label{ font-size:11px; }
+
+    /* browser mock / landing */
+    .browser-mock .content{ padding:40px 22px; }
+    .browser-mock .content h3{ font-size:22px; margin-bottom:10px; }
+    .browser-mock .content p{ font-size:13.5px; }
+    .flavor-row{ flex-wrap:wrap; gap:8px 14px; }
+
+    /* sitemap */
+    .sitemap .row{ gap:10px; }
+    .sitemap .box{ font-size:12px; padding:8px 14px; }
+
+    /* content calendar strip */
+    .cal-strip{ gap:8px; }
+    .cal-strip .day{ min-width:44px; padding:10px 4px; }
+
+    /* lessons */
+    .lesson{ gap:14px; }
+    .lesson .num{ font-size:24px; width:34px; }
+    .lesson p{ max-width:100%; }
+
+    /* footer */
+    footer.contact{ padding:80px 24px; }
+    footer.contact h2{ font-size:30px; }
+    footer.contact .name{ font-size:16px; }
+  }
 </style>
 </head>
 <body>
@@ -367,6 +440,7 @@ Learning Product Marketing, Brand Strategy, SaaS Marketing, and Growth Marketing
       <div class="node">Website</div><div class="conn"></div>
       <div class="node">Content</div><div class="conn"></div>
       <div class="node">Campaign Concepts</div>
+    </div>
     <div class="grid2" style="margin-top:60px;">
 
 <div class="card">
@@ -392,7 +466,7 @@ Rather than competing on exaggerated health claims, I focused on building a conc
 
 <h4>PROJECT SNAPSHOT</h4>
 
-<table>
+<div class="table-scroll"><table>
 
 <tr>
 <td>Project Type</td>
@@ -419,7 +493,7 @@ Rather than competing on exaggerated health claims, I focused on building a conc
 <td>Concept Stage</td>
 </tr>
 
-</table>
+</table></div>
 
 </div><div class="card" style="margin-top:40px;">
 <h4>KEY OUTCOMES</h4>
@@ -434,6 +508,7 @@ Rather than competing on exaggerated health claims, I focused on building a conc
 </ul>
 
 </div>
+    </div>
     <div class="disclaimer">Note: GutClean is a self-directed learning project, not a commercially operating company. All research referenced is either primary (my own informal consumer questions) or drawn from publicly available category information.</div>
   </section>
 
@@ -470,13 +545,13 @@ Rather than competing on exaggerated health claims, I focused on building a conc
   <section id="competitors">
     <div class="kicker eyebrow">04 — COMPETITOR LANDSCAPE</div>
     <h2 class="title">Understanding how leading brands position themselves before defining GutClean's direction.</h2>
-    <table style="margin-top:32px;">
+    <div class="table-scroll"><table style="margin-top:32px;">
       <tr><th></th><th>Competitor A</th><th>Competitor B</th><th>Competitor C</th><th>GutClean</th></tr>
       <tr><td class="mono" style="color:var(--ink-soft);">Format</td><td>Capsules</td><td>Powder</td><td>Gummies</td><td class="hl">Sachets</td></tr>
       <tr><td class="mono" style="color:var(--ink-soft);">Price Positioning</td><td>Premium</td><td>Mid</td><td>Mid-Premium</td><td class="hl">Mid</td></tr>
       <tr><td class="mono" style="color:var(--ink-soft);">Brand Tone</td><td>Clinical</td><td>Playful</td><td>Youthful</td><td class="hl">Simple &amp; Direct</td></tr>
       <tr><td class="mono" style="color:var(--ink-soft);">Key Gap</td><td>Complex dosing</td><td>Bland taste</td><td>Low efficacy perception</td><td>—</td></tr>
-    </table>
+    </table></div>
     <p class="sub" style="margin-top:28px;">Key Insight: The review of leading brands revealed a clear gap between highly clinical products and lifestyle-focused brands. This created an opportunity to position GutClean as a simple, credible, and easy-to-understand everyday wellness brand.</p>
 
     <div class="map2x2">
@@ -644,12 +719,12 @@ Rather than competing on exaggerated health claims, I focused on building a conc
   <section id="social">
     <div class="kicker eyebrow">12 — SOCIAL MEDIA STRATEGY</div>
     <h2 class="title">Instagram content pillars</h2>
-    <table style="margin-top:32px;">
+    <div class="table-scroll"><table style="margin-top:32px;">
       <tr><th>Pillar</th><th>Purpose</th><th>Example</th></tr>
       <tr><td class="hl">Educate</td><td>Build category trust</td><td>"What is gut health, really?" carousel</td></tr>
       <tr><td class="hl">Demonstrate</td><td>Show the ritual</td><td>Reel: sachet-to-glass in 10 seconds</td></tr>
       <tr><td class="hl">Reassure</td><td>Counter skepticism</td><td>Post: "No miracle claims. Just simple habits."</td></tr>
-    </table>
+    </table></div>
     <div class="cal-strip">
       <div class="day"><div class="d">MON</div><div class="type">🎬</div></div>
       <div class="day"><div class="d">TUE</div><div class="type">🖼️</div></div>
@@ -677,13 +752,13 @@ Rather than competing on exaggerated health claims, I focused on building a conc
   <section id="ai">
     <div class="kicker eyebrow">14 — HOW I USED AI IN THIS PROJECT</div>
     <h2 class="title">A tool for speed, not a substitute for judgment</h2>
-    <table style="margin-top:32px;">
+    <div class="table-scroll"><table style="margin-top:32px;">
       <tr><th>AI Helped With</th><th>I Decided</th></tr>
       <tr><td>Summarizing category research</td><td>Which insights mattered for GutClean</td></tr>
       <tr><td>Drafting first-pass copy</td><td>Final tone, wording, and positioning</td></tr>
       <tr><td>Brainstorming name / flavor ideas</td><td>Final brand name and flavor lineup</td></tr>
       <tr><td>Structuring competitor comparisons</td><td>What the comparison actually meant strategically</td></tr>
-    </table>
+    </table></div>
     <p class="sub" style="margin-top:24px;">Tools used: ChatGPT, Claude, Perplexity — for research and drafting. Every strategic and creative decision in this portfolio was reviewed and finalized by me.</p>
   </section>
 
